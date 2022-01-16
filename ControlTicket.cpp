@@ -33,6 +33,18 @@ int ControlTicket::position(int id)
 	return -1;
 }
 
+int ControlTicket::positionDate(string date)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (ticket[i]->getDepartDate() == date)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
 int ControlTicket::nextId()
 {
 	if (size == 0)
@@ -49,19 +61,7 @@ void ControlTicket::remove(int id)
 	{
 		ticket[i] = ticket[i + 1];
 	}
-}
-
-void ControlTicket::updateCustomerName(int id, string newCustomerName)
-{
-	int p = position(id);
-	if (p != -1)
-	{
-		ticket[p]->setCustomerName(newCustomerName);
-	}
-	else
-	{
-		cout << "Wrong customer Name" << endl;
-	}
+	size--;
 }
 
 void ControlTicket::updateDepartDate(int id, string newDepartDate)
@@ -103,6 +103,106 @@ void ControlTicket::updatePrice(int id, int newPrice)
 	}
 }
 
+void ControlTicket::updateDestination(int id, string newDestination)
+{
+	int p = position(id);
+	
+	if (p != -1)
+	{
+		ticket[p]->setDestination(newDestination);
+	}
+	else
+	{
+		cout << "Wrong destination" << endl;
+	}
+}
+
+void ControlTicket::showVip()
+{
+	for (int i = 0; i < size; i++)
+	{
+		VIP* a = dynamic_cast<VIP*>(ticket[i]);
+
+		if (a != NULL)
+		{
+			cout << a->description() << endl;
+		}
+	}
+}
+
+void ControlTicket::showBusiness()
+{
+	for (int i = 0; i < size; i++)
+	{
+		Business* b = dynamic_cast<Business*>(ticket[i]);
+
+		if (b != NULL)
+		{
+			cout << b->description() << endl;
+		}
+	}
+}
+
+void ControlTicket::showEconomic()
+{
+	for (int i = 0; i < size; i++)
+	{
+		Economic* c = dynamic_cast<Economic*>(ticket[i]);
+
+		if (c != NULL)
+		{
+			cout << c->description() << endl;
+		}
+	}
+}
+
+void ControlTicket::showTickets(int ticketId)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (ticket[i]->getId() == ticketId)
+		{
+			cout << ticket[i]->description() << endl;
+		}
+	}
+}
+
+Ticket** ControlTicket::getTicket(string date ,int&nr)
+{
+	nr = 0;
+
+	Ticket** bilet = new Ticket * [100];
+
+	for (int i = 0; i < size; i++)
+	{
+		if (ticket[i]->getDepartDate() == date)
+		{
+			bilet[nr] = ticket[i];
+
+			nr++;
+		}
+	}
+	return bilet;
+
+	/*int poz = positionDate(date);
+
+	return ticket[poz];*/
+}
+
+void ControlTicket::getTicket1(string date, string destination ,int &nr)
+{
+	nr = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (ticket[i]->getDepartDate() == date && ticket[i]->getDestination()==destination)
+		{
+			cout << ticket[i]->description() << endl;
+
+			nr++;
+		}
+	}
+}
+
 void ControlTicket::load()
 {
 	ifstream read("Ticket.txt");
@@ -111,19 +211,19 @@ void ControlTicket::load()
 	{
 		int id;
 		read >> id;
-		string customerName;
-		read >> customerName;
 		string departDate;
 		read >> departDate;
 		string type;
 		read >> type;
 		int price;
+		string destination;
 		if (type == "VIP")
 		{
 			string benefits;
 			read >> benefits;
 			read >> price;
-			Ticket* a = new VIP(id, customerName, departDate, benefits, price);
+			read >> destination;
+			Ticket* a = new VIP(id, departDate, benefits, price,destination);
 			this->add(a);
 		}
 		if (type == "Business")
@@ -131,7 +231,8 @@ void ControlTicket::load()
 			int seatNr;
 			read >> seatNr;
 			read >> price;
-			Ticket* b = new Business(id, customerName, departDate, seatNr, price);
+			read >> destination;
+			Ticket* b = new Business(id, departDate, seatNr, price, destination);
 			this->add(b);
 		}
 		if (type == "Economic")
@@ -139,7 +240,8 @@ void ControlTicket::load()
 			int bagWeight;
 			read >> bagWeight;
 			read >> price;
-			Ticket* c = new Economic(id, customerName, departDate, bagWeight, price);
+			read >> destination;
+			Ticket* c = new Economic(id, departDate, bagWeight, price, destination);
 			this->add(c);
 		}
 		

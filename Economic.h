@@ -13,7 +13,7 @@ public:
 
 	}
 
-	Economic(int, string, string, int, int);
+	Economic(int, string,int, int, string);
 
 	void setHandbagWeight(int);
 	int getHandbagWeight();

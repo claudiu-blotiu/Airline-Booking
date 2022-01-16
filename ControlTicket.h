@@ -17,17 +17,31 @@ public:
 
 	int position(int id);
 
+	int positionDate(string date);
+
 	int nextId();
 
 	void remove(int id);
 
-	void updateCustomerName(int id, string newCustomerName);
-	
 	void updateDepartDate(int id, string newDepartDate);
 
 	void updateType(int id, string newType);
 
 	void updatePrice(int id, int newPrice);
+
+	void updateDestination(int id, string newDestination);
+
+	void showVip();
+
+	void showBusiness();
+
+	void showEconomic();
+
+	void showTickets(int ticketId);
+
+	Ticket** getTicket(string date,int&nr);
+
+	void getTicket1(string date, string destination,int& nr);
 
 	void load();
 

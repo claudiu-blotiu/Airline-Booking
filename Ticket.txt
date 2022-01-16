@@ -1,3 +1,7 @@
-1 Alex 14.06.2022 Economic 15 1500
-2 Bogdan 24.12.2020 VIP SleepBed 3200
-3 Claudiu 10.06.2022 Business 10 2300
+1 24.12.2020 Economic 15 1500 Berlin
+2 24.12.2020 VIP SleepBed 3200 Berlin
+3 10.06.2022 Business 10 2300 Sibiu
+4 31.12.2020 Economic 5 3600 Bucuresti
+5 14.02.2021 VIP Champagne 5000 Praga
+6 31.12.2020 Business 100 2500 Ibiza
+7 31.12.2020 Business 25 3600 Bucuresti

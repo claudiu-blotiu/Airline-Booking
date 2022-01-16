@@ -13,7 +13,7 @@ public:
 
 	}
 
-	Business(int, string, string, int, int);
+	Business(int, string, int, int,string);
 
 	void setSeatNr(int);
 	int getSeatNr();

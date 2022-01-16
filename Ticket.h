@@ -9,10 +9,10 @@ class Ticket
 private:
 
 	int id = 1;
-	string customerName = "";
 	string departureDate = "";
 	string type = "";
 	int price = 1;
+	string destination = "";
 
 public:
 
@@ -21,13 +21,10 @@ public:
 
 	}
 
-	Ticket(int, string, string, string, int);
+	Ticket(int, string, string, int,string);
 
 	void setId(int);
 	int getId();
-
-	void setCustomerName(string);
-	string getCustomerName();
 
 	void setDepartDate(string);
 	string getDepartDate();
@@ -37,6 +34,9 @@ public:
 
 	void setPrice(int);
 	int getPrice();
+
+	void setDestination(string);
+	string getDestination();
 
 	virtual string description();
 

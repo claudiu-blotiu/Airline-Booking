@@ -140,20 +140,34 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Airline-Booking.cpp" />
+    <ClCompile Include="Booking.cpp" />
     <ClCompile Include="Business.cpp" />
+    <ClCompile Include="ControlBooking.cpp" />
+    <ClCompile Include="ControlCustomer.cpp" />
     <ClCompile Include="ControlTicket.cpp" />
+    <ClCompile Include="Customer.cpp" />
     <ClCompile Include="Economic.cpp" />
+    <ClCompile Include="Login.cpp" />
+    <ClCompile Include="View.cpp" />
     <ClCompile Include="VIP.cpp" />
     <ClCompile Include="Ticket.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Booking.h" />
     <ClInclude Include="Business.h" />
+    <ClInclude Include="ControlBooking.h" />
+    <ClInclude Include="ControlCustomer.h" />
     <ClInclude Include="ControlTicket.h" />
+    <ClInclude Include="Customer.h" />
     <ClInclude Include="Economic.h" />
+    <ClInclude Include="Login.h" />
+    <ClInclude Include="View.h" />
     <ClInclude Include="VIP.h" />
     <ClInclude Include="Ticket.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Booking.txt" />
+    <Text Include="Customer.txt" />
     <Text Include="Ticket.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

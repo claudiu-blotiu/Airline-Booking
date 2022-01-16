@@ -13,7 +13,7 @@ public:
 
 	}
 
-	VIP(int, string, string, string, int);
+	VIP(int, string, string, int,string);
 
 	void setBenefits(string);
 	string getBenefits();

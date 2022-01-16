@@ -1,10 +1,22 @@
-#include"ControlTicket.h"
+#include"Login.h"
 
 int main()
 {
-    ControlTicket* ct = new ControlTicket();
+    /*Customer* c = new Customer(2, "Bogdan");
 
-    ct->show();
+    View* v=new View(c);
+
+    v->play();*/
+
+    Login* log = new Login();
+
+    log->play();
+    
+
+
+
+   
+    
 
     
 }
